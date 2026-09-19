@@ -1,5 +1,6 @@
 const Product = require('../models/Product');
 const categoryService = require('./categoryService');
+const escapeRegex = require('../utils/escapeRegex');
 
 const DEFAULT_PAGE = 1;
 const DEFAULT_LIMIT = 20;
@@ -8,7 +9,7 @@ async function listProducts({ search, category, page, limit } = {}) {
   const query = {};
 
   if (search) {
-    query.name = new RegExp(search, 'i');
+    query.name = new RegExp(escapeRegex(search), 'i');
   }
 
   if (category && category !== 'all') {

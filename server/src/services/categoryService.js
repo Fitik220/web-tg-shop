@@ -1,5 +1,6 @@
 const Category = require('../models/Category');
 const Product = require('../models/Product');
+const escapeRegex = require('../utils/escapeRegex');
 
 async function listCategories() {
   return Category.find().sort({ name: 1 });
@@ -10,7 +11,7 @@ async function getCategoryById(id) {
 }
 
 async function getCategoryByName(name) {
-  return Category.findOne({ name: new RegExp(`^${name}$`, 'i') });
+  return Category.findOne({ name: new RegExp(`^${escapeRegex(name)}$`, 'i') });
 }
 
 async function createCategory({ name, image }) {
