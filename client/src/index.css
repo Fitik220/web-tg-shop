@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  background-color: #f7f7f7;
+  color: #1a1a1a;
+}
+
+img {
+  max-width: 100%;
+}
